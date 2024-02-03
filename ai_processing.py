@@ -1,6 +1,9 @@
 from openai import OpenAI
 import random
 from base64 import b64decode
+from pathlib import Path
+import requests
+
 
 client = OpenAI(api_key="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")
 
@@ -115,12 +118,12 @@ class ai_processing:
             "humility",
         ]
 
-        return f"make a {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
+        return f"make a short {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
 
-    def generate_image(image_prompt, client):
+    def generate_image(image_prompt, client=client):
         """
         Takes a prompt as an argument and uses it to generate an ai image using OpenAI Dall-E 3.
-        Returns the image data as Base64 JSON.
+        Returns the image URL.
         """
 
         response = client.images.generate(
@@ -128,13 +131,18 @@ class ai_processing:
             prompt=image_prompt,
             size="1024x1024",
             quality="standard",
-            response_format="b64_json",
+            # response_format="b64_json",
             n=1,  # number of images generated (dall-e-3 only supports 1)
         )
 
-        return response
+        image_url = response.data[0].url
+        print(image_url)
 
-    def generate_quote(quote_prompt, client):
+        img_data = requests.get(image_url).content
+        with open("test.png", "wb") as handler:
+            handler.write(img_data)
+
+    def generate_quote(quote_prompt, client=client):
         """
         Takes a prompt as an argument and uses it to create a quote using OpenAI GPT 3.5 Turbo
         """
@@ -157,13 +165,9 @@ class ai_processing:
 
 
 def main():
-    print(
-        ai_processing.construct_image_prompt(),
-        "\n",
-        ai_processing.construct_text_prompt(),
-    )
-    ai_processing.generate_image(ai_processing.construct_image_prompt(), client)
-    ai_processing.generate_quote(ai_processing.construct_text_prompt(), client)
+
+    ai_processing.generate_image(ai_processing.construct_image_prompt())
+    ai_processing.generate_quote(ai_processing.construct_text_prompt())
 
 
 if __name__ == "__main__":
