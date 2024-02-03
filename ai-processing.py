@@ -1,5 +1,8 @@
 from openai import OpenAI
 import random
+from base64 import b64decode
+
+client = OpenAI(api_key="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")
 
 
 def construct_image_prompt():
@@ -64,18 +67,6 @@ def construct_text_prompt():
         "nostalgic",
     ]
 
-    QUOTE_ADJECTIVES = [
-        "joy",
-        "loss",
-        "bitterness",
-        "hope",
-        "grief",
-        "happiness",
-        "sadness",
-        "pain",
-        "solace",
-    ]
-
     QUOTE_TOPICS = [
         "love",
         "determination",
@@ -102,8 +93,26 @@ def construct_text_prompt():
         "humility",
     ]
 
-    return f"make a {random.choice(QUOTE_TYPE)} quote about the {random.choice(QUOTE_ADJECTIVES)} of {random.choice(QUOTE_TOPICS)}"
+    return (
+        f"make a {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
+    )
+
+
+def generate_image():
+    image_prompt = construct_image_prompt()
+
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=image_prompt,
+        size="1024x1024",
+        quality="standard",
+        response_format="b64_json",
+        n=1,  # number of images generated (dall-e-3 only supports 1)
+    )
+
+    return response
 
 
 if __name__ == "__main__":
     print(construct_image_prompt(), "\n", construct_text_prompt())
+    generate_image()
