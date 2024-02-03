@@ -6,6 +6,10 @@ client = OpenAI(api_key="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")
 
 
 def construct_image_prompt():
+    """
+    Constructs a pseudo-random image prompt for an ai model, and returns the prompt as a string.
+    """
+
     PICTURE_TYPES = [
         "sky",
         "nature",
@@ -55,6 +59,10 @@ def construct_image_prompt():
 
 
 def construct_text_prompt():
+    """
+    Constructs a pseudo-random prompt for an ai to generate a quote and returns the prompt as a string.
+    """
+
     QUOTE_TYPE = [
         "inspirational",
         "motivational",
@@ -98,8 +106,11 @@ def construct_text_prompt():
     )
 
 
-def generate_image():
-    image_prompt = construct_image_prompt()
+def generate_image(image_prompt):
+    """
+    Takes a prompt as an argument and uses it to generate an ai image using OpenAI Dall-E 3.
+    Returns the image data as Base64 JSON.
+    """
 
     response = client.images.generate(
         model="dall-e-3",
@@ -115,4 +126,4 @@ def generate_image():
 
 if __name__ == "__main__":
     print(construct_image_prompt(), "\n", construct_text_prompt())
-    generate_image()
+    generate_image(construct_image_prompt())
