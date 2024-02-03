@@ -51,5 +51,59 @@ def construct_image_prompt():
     return f"{random.choice(PICTURE_TYPES)} on a {random.choice(WEATHER_TYPES)} {random.choice(TIME_OF_DAY)} in a {random.choice(STYLE_TYPES)} style"
 
 
+def construct_text_prompt():
+    QUOTE_TYPE = [
+        "inspirational",
+        "motivational",
+        "sympathetic",
+        "heartfelt",
+        "happy",
+        "friendly",
+        "introspective",
+        "reflective",
+        "nostalgic",
+    ]
+
+    QUOTE_ADJECTIVES = [
+        "joy",
+        "loss",
+        "bitterness",
+        "hope",
+        "grief",
+        "happiness",
+        "sadness",
+        "pain",
+        "solace",
+    ]
+
+    QUOTE_TOPICS = [
+        "love",
+        "determination",
+        "hard work",
+        "perserverence",
+        "gratitude",
+        "friendship",
+        "happiness",
+        "success",
+        "generosity",
+        "loss",
+        "adversity",
+        "music",
+        "family",
+        "loneliness",
+        "home",
+        "simple living",
+        "time",
+        "life",
+        "mental health",
+        "the future",
+        "lost love",
+        "new beginnings",
+        "humility",
+    ]
+
+    return f"make a {random.choice(QUOTE_TYPE)} quote about the {random.choice(QUOTE_ADJECTIVES)} of {random.choice(QUOTE_TOPICS)}"
+
+
 if __name__ == "__main__":
-    pass
+    print(construct_image_prompt(), "\n", construct_text_prompt())
