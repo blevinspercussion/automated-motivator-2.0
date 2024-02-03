@@ -20,8 +20,11 @@ def construct_image_prompt():
         "gradient color",
         "liminal space",
         "lake",
-        "pold",
+        "pond",
         "forest",
+        "water",
+        "trees",
+        "desert",
     ]
 
     WEATHER_TYPES = [
@@ -124,6 +127,29 @@ def generate_image(image_prompt):
     return response
 
 
+def generate_quote(quote_prompt):
+    """
+    Takes a prompt as an argument and uses it to create a quote using OpenAI GPT 3.5 Turbo
+    """
+
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a brilliant poet and orator that loves dispensing wisdom.",
+            },
+            {"role": "user", "content": quote_prompt},
+        ],
+    )
+
+    quote = response.choices[0].message.content
+
+    print(quote)
+    return quote
+
+
 if __name__ == "__main__":
     print(construct_image_prompt(), "\n", construct_text_prompt())
-    generate_image(construct_image_prompt())
+    # generate_image(construct_image_prompt())
+    generate_quote(construct_text_prompt())
