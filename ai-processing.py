@@ -149,7 +149,11 @@ def generate_quote(quote_prompt):
     return quote
 
 
-if __name__ == "__main__":
+def main():
     print(construct_image_prompt(), "\n", construct_text_prompt())
-    # generate_image(construct_image_prompt())
+    generate_image(construct_image_prompt())
     generate_quote(construct_text_prompt())
+
+
+if __name__ == "__main__":
+    main()
