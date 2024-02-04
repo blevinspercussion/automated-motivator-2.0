@@ -1,11 +1,14 @@
 from openai import OpenAI
 import random
 import requests
-import aiohttp
-import asyncio
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-client = OpenAI(api_key="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")
+API_KEY = os.environ.get("OPENAI_API_KEY")
+
+client = OpenAI(api_key=API_KEY)
 
 
 class ai_processing:
@@ -74,7 +77,7 @@ class ai_processing:
         ]
 
         image_prompt = f"{random.choice(PICTURE_TYPES)} on a {random.choice(WEATHER_TYPES)} {random.choice(TIME_OF_DAY)} in a {random.choice(STYLE_TYPES)} style"
-        print(image_prompt)
+        print(f"Image prompt: {image_prompt}")
 
         return image_prompt
 
@@ -121,7 +124,10 @@ class ai_processing:
             "humility",
         ]
 
-        return f"make a short {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
+        prompt = f"make a short {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
+        print(f"Text prompt: {prompt}")
+
+        return prompt
 
     def generate_image(image_prompt, client=client):
         """
@@ -163,7 +169,7 @@ class ai_processing:
 
         quote = response.choices[0].message.content
 
-        print(quote)
+        print(f"Quote: {quote}")
         return quote
 
 

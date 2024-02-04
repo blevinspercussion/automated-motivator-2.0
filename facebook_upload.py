@@ -1,7 +1,9 @@
 import facebook
+import os
+from dotenv import load_dotenv
 
-FACEBOOK_API_TOKEN = "EAAMIlaVy5J4BO6ZCNv9xW2cvZAtPZBAXmB1iiNkBG8uSYiihyZBYuom6UCiOUUfyZAyzPNGJo4jZBFJ1tc9WPPy0OydIXfoZCdlC7YMIctbogtgnld8hWKHZB2DqhjOoaMysPY91N4KOIeu1UBCTJ0Q0PZBzByzVYOvobIhs3Vp5KLEqOfVaSP51FJsOUjS2236UZBDkpGFoTAUDPb4cZAlin0D"
-FACEBOOK_PAGE_ID = "109154062093016"
+FACEBOOK_API_TOKEN = os.environ.get("FACEBOOK_API_TOKEN")
+FACEBOOK_PAGE_ID = os.environ.get("FACEBOOK_PAGE_ID")
 
 
 def facebook_upload(quote, api_token=FACEBOOK_API_TOKEN, page_id=FACEBOOK_PAGE_ID):
