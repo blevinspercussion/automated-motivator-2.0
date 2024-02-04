@@ -125,7 +125,7 @@ class ai_processing:
             "humility",
         ]
 
-        prompt = f"make a short {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}"
+        prompt = f"make a short {random.choice(QUOTE_TYPE)} quote about {random.choice(QUOTE_TOPICS)}, fewer than 40 words"
         print(f"Text prompt: {prompt}")
 
         return prompt
