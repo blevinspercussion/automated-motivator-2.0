@@ -73,7 +73,10 @@ class ai_processing:
             "dusk",
         ]
 
-        return f"{random.choice(PICTURE_TYPES)} on a {random.choice(WEATHER_TYPES)} {random.choice(TIME_OF_DAY)} in a {random.choice(STYLE_TYPES)} style"
+        image_prompt = f"{random.choice(PICTURE_TYPES)} on a {random.choice(WEATHER_TYPES)} {random.choice(TIME_OF_DAY)} in a {random.choice(STYLE_TYPES)} style"
+        print(image_prompt)
+
+        return image_prompt
 
     def construct_text_prompt():
         """
@@ -135,11 +138,12 @@ class ai_processing:
         )
 
         image_url = response.data[0].url
-        print(image_url)
 
         img_data = requests.get(image_url).content
-        with open("test.png", "wb") as handler:
+        with open("image.png", "wb") as handler:
             handler.write(img_data)
+
+        print("Image generated.")
 
     def generate_quote(quote_prompt, client=client):
         """

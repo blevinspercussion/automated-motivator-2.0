@@ -1,6 +1,6 @@
 import facebook
 
-FACEBOOK_API_TOKEN = "EAAMIlaVy5J4BO6O27848SolV87KZAtelWaa8881e545L8zgzfJdNPJxDVWzb3YZBmYZAeBKL8QaSbOa9ZCmWTYYXmYsdnZC7lQZBDvVbdZCZA7YXCOgmi1gZBCTpjHWrSXNwgboOp1oyjeTxgPE28KUI8JqwARmjO9ztq2vZCa6JyEbsvvhfiA3ZBMz4PV7lU5bZA8S1NBbbWjQ6kWQ0TCBURQya"
+FACEBOOK_API_TOKEN = "EAAMIlaVy5J4BO6ZCNv9xW2cvZAtPZBAXmB1iiNkBG8uSYiihyZBYuom6UCiOUUfyZAyzPNGJo4jZBFJ1tc9WPPy0OydIXfoZCdlC7YMIctbogtgnld8hWKHZB2DqhjOoaMysPY91N4KOIeu1UBCTJ0Q0PZBzByzVYOvobIhs3Vp5KLEqOfVaSP51FJsOUjS2236UZBDkpGFoTAUDPb4cZAlin0D"
 FACEBOOK_PAGE_ID = "109154062093016"
 
 
@@ -8,10 +8,14 @@ def facebook_upload(quote, api_token=FACEBOOK_API_TOKEN, page_id=FACEBOOK_PAGE_I
 
     graph = facebook.GraphAPI(FACEBOOK_API_TOKEN)
 
+    print("Uploading to Facebook...")
+
     graph.put_photo(
         image=open("final.png", "rb"),
         message=f"{quote} #DailyMotivation #DailyAffirmation #motivation #quotes #QuotesToLiveBy",
     )
+
+    print("Upload complete!")
 
 
 if __name__ == "__main__":

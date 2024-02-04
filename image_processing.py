@@ -52,6 +52,8 @@ class image_processing:
 
         image.save(Path.cwd() / "final.png")
 
+        print("Image overlay created.")
+
 
 if __name__ == "__main__":
     image_processing.text_overlay(
