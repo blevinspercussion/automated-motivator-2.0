@@ -6,7 +6,7 @@ from PIL import Image, ImageFont, ImageDraw, ImageFilter
 class image_processing:
     def text_overlay(quote):
         print("writing text overlay...")
-        IMAGE_FILE = Path.cwd() / "test.png"
+        IMAGE_FILE = Path.cwd() / "image.png"
         font_size = 72
         text_font = ImageFont.truetype("Roboto-Black.ttf", size=font_size)
         text = quote
