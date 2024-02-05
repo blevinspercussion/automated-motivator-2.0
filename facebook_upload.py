@@ -4,8 +4,10 @@ from dotenv import load_dotenv
 
 
 def facebook_upload(quote):
+    load_dotenv()
+
     FACEBOOK_API_TOKEN = os.environ.get("FACEBOOK_API_TOKEN")
-    FACEBOOK_PAGE_ID = os.environ.get("FACEBOOK_PAGE_ID")
+    # FACEBOOK_PAGE_ID = os.environ.get("FACEBOOK_PAGE_ID")
 
     graph = facebook.GraphAPI(FACEBOOK_API_TOKEN)
 
