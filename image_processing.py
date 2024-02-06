@@ -40,7 +40,7 @@ class image_processing:
             "Roboto-Black.ttf", size=watermark_font_size
         )
 
-        wm_width, wm_height = draw.textsize(watermark_text, watermark_font)
+        wm_width, wm_height = draw.textlength(watermark_text, watermark_font)
 
         # Calculate x, y coordinates of the text
         margin = 10

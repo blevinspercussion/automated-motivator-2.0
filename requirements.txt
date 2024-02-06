@@ -1,3 +1,4 @@
 openai  
 facebook-sdk
 pillow
+python-dotenv
