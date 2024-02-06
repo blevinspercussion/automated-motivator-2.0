@@ -32,7 +32,7 @@ At the top of the script, after the imports, it loads the environment variables 
 
 3. **generate_image** takes the image prompt and the client as an argument and uses them to generate an image using OpenAI's Dall-E 3 model. The image is saved into the current working directory as "image.png".
 
-4. **generate_quote" takes the quote prompt and the client as an argument as uses the quote prompt to generate a quote using OpenAI's GPT 3.5 Turbo model.
+4. **generate_quote** takes the quote prompt and the client as an argument as uses the quote prompt to generate a quote using OpenAI's GPT 3.5 Turbo model.
 
 The **main.py** function runs the entire process.
 
