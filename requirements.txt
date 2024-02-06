@@ -1,0 +1,3 @@
+openai  
+facebook-sdk
+pillow
