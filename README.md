@@ -51,3 +51,7 @@ This file is simple as it just uploads the final image to Facebook. Bu sure to c
 ### main.py
 
 This file imports the necessary functions and classes from the other files and sets everything into motion. If your environment variables are correct, everything should work by running this file from your code editor/IDE or from the command line.
+
+### How to use
+
+Clone the repo locally. Create the .env file with your environment variables (OPENAI_API_KEY and FACEBOOK_PAGE_ID), install dependencies (pip install -r requirements.txt), and run the main file.(**python main.py** on Windows or **python3 main.py** on Linux/Mac).
