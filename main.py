@@ -8,6 +8,7 @@ def main():
     # quote_prompt = ai_processing.construct_text_prompt
 
     ai_processing.generate_image(ai_processing.construct_image_prompt())
+
     quote = ai_processing.generate_quote(ai_processing.construct_text_prompt())
 
     image_processing.text_overlay(quote)

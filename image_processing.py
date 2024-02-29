@@ -9,8 +9,8 @@ class image_processing:
         IMAGE_FILE = Path.cwd() / "image.png"
         font_size = 72
         text_font = ImageFont.truetype("Roboto-Black.ttf", size=font_size)
-        text = quote
-        text = textwrap.fill(text=text, width=25)
+        # text = quote
+        text = textwrap.fill(text=quote, width=25)
 
         try:
             image = Image.open(IMAGE_FILE)

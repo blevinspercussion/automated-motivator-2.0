@@ -17,7 +17,7 @@ class ai_processing:
 
     def construct_image_prompt():
         """
-        Constructs a pseudo-random image prompt for an ai model, and returns the prompt as a string.
+        Constructs a pseudo-random image prompt for an ai model and returns the prompt as a string.
         """
 
         PICTURE_TYPES = [
@@ -135,6 +135,7 @@ class ai_processing:
         Takes a prompt as an argument and uses it to generate an ai image using OpenAI Dall-E 3.
         Returns the image URL.
         """
+
         print("Generating image...")
         response = client.images.generate(
             model="dall-e-3",
